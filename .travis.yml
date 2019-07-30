@@ -1,0 +1,20 @@
+language: python
+python:
+- '2.7'
+before_script:
+- yes | python setup.py install
+- git clone https://github.com/uc-cdis/dictionaryutils; cd dictionaryutils
+script:
+- "./run_tests.sh"
+deploy:
+  provider: s3
+  access_key_id: AKIAZRNPHKJIFEO6GSK5
+  bucket: dictionary-artifacts
+  local-dir: artifacts
+  upload-dir: canine_dictionary/$TRAVIS_BRANCH
+  skip_cleanup: true
+  on:
+    repo: uc-cdis/canine_dictionary
+    all_branches: true
+  secret_access_key:
+    secure: Tf99WBIRLw/CR0jIATGAOh8ueYL3F3TE/fFsA2co+zzk19030xb9JTbVAPmPgeXYwENLer3bRgVamo7AexzuGVHLkBkU7I72b8QpFVTrqNHTp0OCH3kUXhPMMnzjXM2nvzgQYAhxY3b/bisvasBu756f99VPucoEVY2nNrrxPc/FU2Tc3EmLsn7LPiBg+7C2EZ3h387F0jbn045GhQTM6hzyQZoU8yqjcTK6eJQBMv/+j8QAG7d7UAy9Jf77Gem14oJn8zRQLGvSy8bE0VkrpPTUp/DzG7lndDaw6lLOF/+bVKe5bRacwfgiPhDBVhHmPatshVUCIKzG+5LLEDitbFrsjqs1helwUTjG24Hi9Jj6qWxqi8uXL6igWbD10Gsei5WWmcwUfwuCHKJAB+sQjj8M4aSDcMLQLcC0/NvW8NNOhcDqM5+RrziECiaVd9Zr8MRnBPa9pK+ieYw5cUBgDGltRSFpPN800lEcJV9rCyzqTdrfco+hZj1JuM96NyKbhHTcL4PiB659xxwQMmWzICW0D3K5Dj1fnUB+/ASAuhbSRVoquqjW+41FQnIGnsyTCsYT/a/Ji+DFIGUvaB4DbhUFm2xQdN021J+EkSOQCuQSs19QAI+5LOxlrc2LVk2r1AdtZX9j1ff5tfPN2gIpe7mdoaXpjukX89kEybAUYM4=
