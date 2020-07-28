@@ -1,14 +1,14 @@
 $schema: "http://json-schema.org/draft-04/schema#"
 
 id: "mzml_protein_mass_spectrometry"
-title: MZML Protein Mas Spectrometry
+title: MZML Protein Mass Spectrometry
 type: object
 namespace: https://nci-crdc-demo.datacommons.io/
 category: data_file
 program: '*'
 project: '*'
 description: >
-  Data file containing mzml protein mass spectrometry data
+  Data file containing mzml protein mass spectrometry data.
 additionalProperties: false
 submittable: true
 validators: null
