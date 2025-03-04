@@ -1,6 +1,17 @@
-import os
-from dictionaryutils import DataDictionary as GDCDictionary
+from gdcdictionary.core import GDCDictionary, gdcdictionary, get_schema_directory
+from gdcdictionary.validators import (
+    SchemaValidationError,
+    SchemaValidator,
+    validate,
+    validate_instances,
+)
 
-SCHEMA_DIR = os.path.join(
-    os.path.abspath(os.path.dirname(__file__)), 'schemas')
-gdcdictionary = GDCDictionary(root_dir=SCHEMA_DIR)
+__all__ = [
+    "gdcdictionary",
+    "get_schema_directory",
+    "validate",
+    "validate_instances",
+    "GDCDictionary",
+    "SchemaValidator",
+    "SchemaValidationError",
+]
